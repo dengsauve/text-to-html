@@ -7,3 +7,5 @@
 ### Added
 - Initial files, etc.
 - TextToHtml.to_list tested and working
+- .to_list support for ul and ol
+- .to_list class support for ul/ol added.

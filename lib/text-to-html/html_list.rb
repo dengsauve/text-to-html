@@ -2,12 +2,16 @@
 
 class HtmlList
     
-    def initialize(input)
+    def initialize(input, h_class)
+        # String to be parsed
         @input = input
+        @hclass = h_class
+
+        # Options
         @verbose = false
         @ul = false
         @ol = false
-        @ul_f = false
+        @use_class = false
     end
 
     def to_list
@@ -16,9 +20,8 @@ class HtmlList
 
         p_string = ""
         
-        p_string = "<ul>\n" if @ul
-        p_string = "<ol>\n" if @ol
-        p_string = "<ul class=\"features-list\">\n" if @ul_f
+        p_string = "<ul#{(" class=\"" + @hclass + "\"") if @use_class}>\n" if @ul
+        p_string = "<ol#{(" class=\"" + @hclass + "\"") if @use_class}>\n" if @ol
 
         raw_in.each do | line |
             if @ul || @ol || @ul_f
@@ -26,10 +29,7 @@ class HtmlList
             else
                 p_string << "<li>\n\t#{line}\n</li>\n"
             end
-            p_string << "<li>\n\t#{line}\n</li>\n"
         end
-        
-        raw_in.each { |line| p_string << "<li>\n\t#{line}\n</li>\n" }
 
         p_string << "</ul>\n" if @ul || @ul_f
         p_string << "</ol>\n" if @ol
@@ -49,5 +49,9 @@ class HtmlList
 
     def ol
         @ol = true
+    end
+
+    def use_class
+        @use_class = true
     end
 end
