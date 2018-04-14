@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name        = 'text-to-html'
-    s.version     = '0.0.0'
+    s.version     = '0.0.1'
     s.date        = '2018-04-13'
     s.summary     = "A gem for converting plain text to various html elements."
     s.description = "With more and more code growing obsolete, it's handy to have a few tools that could convert plaintext to html elements."
