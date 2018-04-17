@@ -91,4 +91,14 @@ class TestTextToHtml < Test::Unit::TestCase
         )
     end
 
+    def test_to_paragraph_two_lines
+        two_line_input = "paragraph one should be here\nparagraph two should be here"
+        assert_equal(
+            "<p>\n\tparagraph one should be here\n</p>\n<p>\n\tparagraph two should be here\n</p>",
+            TextToHtml.to_paragraph(two_line_input),
+            ".to_paragraph failed two line input"
+        )
+
+    end
+
 end

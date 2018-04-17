@@ -30,6 +30,9 @@ I plan on covering the basics of html text elements (headers, paragraphs, lists,
 
 ## Status: Unreleased
 
+## [0.0.3] - 04-16-2018
+- gemspec changes
+
 ## [0.0.2] - 04-16-2018
 
 ### Added
