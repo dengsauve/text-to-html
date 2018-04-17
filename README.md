@@ -1,5 +1,33 @@
 # text-to-html
 
+## Description
+
+#### Concept
+
+This gem is a tool for web developers who need to convert plaintext into html elements (paragraphs, headers, tables, etc.) and really don't want to do it by hand (like me).
+
+#### Usage
+
+From the TextToHtml class, you will be able to call class functions like `to_list(input)` and `to_paragraph(input, class_name)`. These will return formatted text with the appropriate tags.
+
+#### Input
+
+Plain text, separated by new lines.
+
+## Future Plans
+
+I plan on covering the basics of html text elements (headers, paragraphs, lists, tables). More advanced features, such as taking newline and comma/tab deliminated text to create anchor tags are also on the table.
+
+## TODO:
+
+- [ ] Headers
+- [ ] Paragraphs
+- [x] Lists
+    - [x] ordered
+    - [x] unordered
+- [ ] Anchor Tags
+- [ ] Tables
+
 ## Status: Unreleased
 
 ## [0.0.2] - 04-16-2018
