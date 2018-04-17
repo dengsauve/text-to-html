@@ -1,13 +1,49 @@
 # function: pulls text w/line breaks from clipboard, adds <p></p> to line breaks, and puts back on clipboard
-verbose = ARGV.include?("-v")
-em = ARGV.include?("-e")
+# TODO: Enable classes
 
-raw_in = `pbpaste`.gsub("\t", '').gsub("\r", '').gsub("\"", '').split("\n")
-puts raw_in.inspect if verbose
+class HtmlParagraph
 
-p_string = ""
-raw_in.each { | line | p_string << "<p>\n\t#{"<em>" if em}#{line}#{"</em>" if em}\n</p>\n" if line.length > 0 }
-p_string.chomp!
-puts p_string if verbose
+    def initialize(input, h_class)
+        # String to be parsed
+        @input = input
+        @hclass = h_class
 
-IO.popen('pbcopy', 'w') { |f| f << p_string }
+        # Options
+        @verbose = false
+        @em = false
+        @strong = false
+        @use_class = false
+    end
+
+    def to_paragraph
+        raw_in = @input.gsub("\t", '').gsub("\r", '').gsub("\"", '').split("\n")
+        puts raw_in.inspect if @verbose
+        
+        p_string = ""
+        raw_in.each do | line | 
+            if line.length > 0
+                p_string << "<p>\n\t#{"<em>" if @em}#{"<strong>" if @strong}#{line}#{"</em>" if @em}#{"</strong>" if @strong}\n</p>\n"
+            end
+        end
+        p_string.chomp!
+        puts p_string if @verbose
+
+        return p_string
+    end
+
+    def em
+        @em = true
+    end
+
+    def strong
+        @strong = true
+    end
+
+    def verbose
+        @verbose = true
+    end
+
+    def use_class
+        @use_class = true
+    end
+end

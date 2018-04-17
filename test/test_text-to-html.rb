@@ -82,4 +82,13 @@ class TestTextToHtml < Test::Unit::TestCase
         )
     end
 
+    def test_to_paragraph_simple
+        simple_input = "should be a one item list"
+        assert_equal(
+            "<p>\n\t#{simple_input}\n</p>",
+            TextToHtml.to_paragraph(simple_input),
+            ".to_paragraph failed simple input"
+        )
+    end
+
 end

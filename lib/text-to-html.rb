@@ -33,4 +33,13 @@ class TextToHtml
 
         return r_list.to_list
     end
+
+    def self.to_paragraph(input, use_class = false, h_class = "", verbose = false)
+        r_paragraph = HtmlParagraph.new(input, h_class)
+
+        #config
+        r_paragraph.verbose if verbose
+
+        return r_paragraph.to_paragraph
+    end
 end
