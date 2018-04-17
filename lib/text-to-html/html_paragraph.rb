@@ -22,7 +22,7 @@ class HtmlParagraph
         p_string = ""
         raw_in.each do | line | 
             if line.length > 0
-                p_string << "<p>\n\t#{"<em>" if @em}#{"<strong>" if @strong}#{line}#{"</em>" if @em}#{"</strong>" if @strong}\n</p>\n"
+                p_string << "<p>\n\t#{"<em>" if @em}#{"<strong>" if @strong}#{line}#{"</strong>" if @strong}#{"</em>" if @em}\n</p>\n"
             end
         end
         p_string.chomp!

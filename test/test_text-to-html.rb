@@ -84,10 +84,33 @@ class TestTextToHtml < Test::Unit::TestCase
 
     def test_to_paragraph_simple
         simple_input = "should be a one item list"
+
+        # Testing basic input
         assert_equal(
             "<p>\n\t#{simple_input}\n</p>",
             TextToHtml.to_paragraph(simple_input),
             ".to_paragraph failed simple input"
+        )
+
+        # Testing basic input with em tag
+        assert_equal(
+            "<p>\n\t<em>#{simple_input}</em>\n</p>",
+            TextToHtml.to_paragraph(simple_input, true),
+            ".to_paragraph failed simple input em"
+        )
+
+        # Testing basic input with strong tag
+        assert_equal(
+            "<p>\n\t<strong>#{simple_input}</strong>\n</p>",
+            TextToHtml.to_paragraph(simple_input, false, true),
+            ".to_paragraph failed simple input em"
+        )
+
+        # Testing basic input with em and strong tag
+        assert_equal(
+            "<p>\n\t<em><strong>#{simple_input}</strong></em>\n</p>",
+            TextToHtml.to_paragraph(simple_input, true, true),
+            ".to_paragraph failed simple input em"
         )
     end
 

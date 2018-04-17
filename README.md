@@ -18,10 +18,15 @@ Plain text, separated by new lines.
 
 I plan on covering the basics of html text elements (headers, paragraphs, lists, tables). More advanced features, such as taking newline and comma/tab deliminated text to create anchor tags are also on the table.
 
+I also want to break em and strong away from paragraph to their own method, allowing users to chain instead of having to declare arguments.
+
 ## TODO:
 
 - [ ] Headers
 - [ ] Paragraphs
+    - [ ] em
+    - [ ] strong
+    - [ ] use class
 - [x] Lists
     - [x] ordered
     - [x] unordered
@@ -29,6 +34,10 @@ I plan on covering the basics of html text elements (headers, paragraphs, lists,
 - [ ] Tables
 
 ## Status: Unreleased
+
+## [0.0.4] - 04-16-2018
+- .to_paragraph - option to enclose text in `em`
+- .to_paragraph - option to enclose text in `strong`
 
 ## [0.0.3] - 04-16-2018
 - gemspec changes
